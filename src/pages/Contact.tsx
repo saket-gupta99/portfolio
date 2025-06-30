@@ -81,7 +81,7 @@ export default function Contact() {
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          action="/thank-you"
+          action="/thank-you.html"
           className="shadow-xl p-8 space-y-8 rounded-md dark:bg-slate-300 dark:text-black"
         >
           {/* Required by Netlify */}
