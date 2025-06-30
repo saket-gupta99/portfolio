@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-dark-800: rgb(33, 33, 33);
+  --color-dark-700: rgb(43, 43, 43);
+
+  --font-red-hat-display: "Red Hat Display", sans-serif;
+  --font-red-hat-text: "Red Hat Text", sans-serif;
+}
+
+/* Add this to your global CSS file */
+#home,
+#about,
+#project
+ {
+  scroll-margin-top: 140px; 
+}
+
+#contact {
+  scroll-margin-top: 10px;
+}
+
+/* Initial hidden state */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Visible state */
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Different animation directions */
+.scroll-reveal.slide-left {
+  transform: translateX(-60px);
+}
+
+.scroll-reveal.slide-right {
+  transform: translateX(60px);
+}
+
+.scroll-reveal.slide-down {
+  transform: translateY(-60px);
+}
+
+.scroll-reveal.fade-only {
+  transform: none;
+}
+
+/* Staggered delays */
+.scroll-reveal.delay-1 { transition-delay: 0.1s; }
+.scroll-reveal.delay-2 { transition-delay: 0.2s; }
+.scroll-reveal.delay-3 { transition-delay: 0.3s; }
+.scroll-reveal.delay-4 { transition-delay: 0.4s; }
+
+/* Animation durations */
+.scroll-reveal.fast { transition-duration: 0.4s; }
+.scroll-reveal.slow { transition-duration: 0.8s; }
