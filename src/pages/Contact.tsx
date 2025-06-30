@@ -17,19 +17,23 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const form = new FormData();
-    form.append("form-name", "contact");
-    Object.entries(formData).forEach(([key, val]) => {
-      form.append(key, val);
-    });
 
     try {
       await fetch("/", {
         method: "POST",
-        body: form,
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...formData,
+        }),
       });
 
       toast.success("Message sent successfully!");
@@ -123,18 +127,10 @@ export default function Contact() {
         <form
           name="contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
           className="shadow-xl p-8 space-y-8 rounded-md dark:bg-slate-300 dark:text-black"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <p className="hidden">
-            <label>
-              Don’t fill this out if you're human:{" "}
-              <input name="bot-field" />
-            </label>
-          </p>
 
           <div className="flex flex-col lg:flex-row gap-5">
             <label className="flex flex-col lg:w-1/2 gap-1">
@@ -192,7 +188,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="rounded-md w-full bg-pink-600 py-2 text-slate-200 cursor-pointer"
+            className="rounded-md w-full bg-pink-600 py-2 text-slate-200 cursor-pointer hover:bg-pink-700 transition-colors"
           >
             Send Message
           </button>
