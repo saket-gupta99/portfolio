@@ -1,7 +1,50 @@
 import { MdEmail } from "react-icons/md";
 import { FaMobileButton, FaLocationDot } from "react-icons/fa6";
+import { useState, type FormEvent, type ChangeEvent } from "react";
+import toast from "react-hot-toast";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = new FormData();
+    form.append("form-name", "contact");
+    Object.entries(formData).forEach(([key, val]) => {
+      form.append(key, val);
+    });
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        body: form,
+      });
+
+      toast.success("Message sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <div id="contact" className="py-32">
       <div className="text-center space-y-4">
@@ -10,6 +53,7 @@ export default function Contact() {
           Ready to bring your ideas to life? Let's discuss your next project
         </p>
       </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
         <div className="space-y-4">
           <h4 className="text-2xl font-semibold">Let's Connect</h4>
@@ -81,15 +125,14 @@ export default function Contact() {
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          action="/thank-you.html"
+          onSubmit={handleSubmit}
           className="shadow-xl p-8 space-y-8 rounded-md dark:bg-slate-300 dark:text-black"
         >
-          {/* Required by Netlify */}
           <input type="hidden" name="form-name" value="contact" />
-          {/* Honeypot field (anti-spam) */}
           <p className="hidden">
             <label>
-              Don’t fill this out if you're human: <input name="bot-field" />
+              Don’t fill this out if you're human:{" "}
+              <input name="bot-field" />
             </label>
           </p>
 
@@ -100,6 +143,8 @@ export default function Contact() {
                 type="text"
                 name="name"
                 required
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Your Name"
                 className="border rounded-sm p-2 border-gray-400 text-sm"
               />
@@ -110,6 +155,8 @@ export default function Contact() {
                 type="email"
                 name="email"
                 required
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="your.email@example.com"
                 className="border rounded-sm p-2 border-gray-400 text-sm"
               />
@@ -122,6 +169,8 @@ export default function Contact() {
               type="text"
               name="subject"
               required
+              value={formData.subject}
+              onChange={handleChange}
               placeholder="Project Discussion"
               className="border rounded-sm p-2 border-gray-400 text-sm"
             />
@@ -132,6 +181,9 @@ export default function Contact() {
             <textarea
               name="message"
               required
+              minLength={20}
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Tell me about your project..."
               className="border rounded-sm p-2 border-gray-400 text-sm"
               rows={6}
