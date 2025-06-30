@@ -24,11 +24,11 @@ export const useDarkMode = () => {
     }
   }, [isDarkMode]);
 
-  // Listen for system theme changes
+  // ✅ Listen for system theme changes
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const handleChange = (e) => {
+    const handleChange = (e: MediaQueryListEvent) => {
       // Only update if user hasn't manually set a preference
       const savedTheme = localStorage.getItem("theme");
       if (!savedTheme) {
