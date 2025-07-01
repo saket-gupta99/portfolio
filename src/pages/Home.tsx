@@ -6,7 +6,7 @@ export default function Home() {
           Hello &nbsp;
           <img className="h-5 w-5" src="/Hello.gif" alt="hand waving" />, I'm
         </div>
-        <div className="text-6xl lg:text-7xl font-semibold mb-4 ">
+        <div className="text-5xl lg:text-7xl font-semibold mb-4 ">
           Saket Gupta
         </div>
         <div className="text-green-500 text-2xl font-semibold mb-10">

@@ -128,7 +128,7 @@ export default function Contact() {
           name="contact"
           method="POST"
           onSubmit={handleSubmit}
-          className="shadow-xl p-8 space-y-8 rounded-md dark:bg-slate-300 dark:text-black"
+          className="shadow-xl p-8 space-y-8 rounded-md dark:bg-slate-100 dark:text-black"
         >
           <input type="hidden" name="form-name" value="contact" />
 
@@ -142,7 +142,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your Name"
-                className="border rounded-sm p-2 border-gray-400 text-sm"
+                className="border  rounded-sm p-2 text-black border-gray-400 text-sm"
               />
             </label>
             <label className="flex flex-col lg:w-1/2 gap-1">
@@ -154,7 +154,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="your.email@example.com"
-                className="border rounded-sm p-2 border-gray-400 text-sm"
+                className="border rounded-sm p-2 text-black border-gray-400 text-sm"
               />
             </label>
           </div>
@@ -168,7 +168,7 @@ export default function Contact() {
               value={formData.subject}
               onChange={handleChange}
               placeholder="Project Discussion"
-              className="border rounded-sm p-2 border-gray-400 text-sm"
+              className="border rounded-sm p-2 text-black border-gray-400 text-sm"
             />
           </label>
 
@@ -181,7 +181,7 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell me about your project..."
-              className="border rounded-sm p-2 border-gray-400 text-sm"
+              className="border rounded-sm p-2 text-black border-gray-400 text-sm"
               rows={6}
             />
           </label>
