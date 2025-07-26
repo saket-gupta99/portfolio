@@ -6,18 +6,26 @@ const projects = [
     image: "/EMS.png",
     description:
       "A full-stack app to manage employee records with role-based access and JWT authentication. Built using React, Node.js, Express, and MongoDB. Admins can securely add, update, or delete users through a responsive UI.",
-    technologies: ["Node.js", "Express", "MongoDB", "React", "JWT"],
+    technologies: ["Node.js", "Express", "MongoDB", "React", "TanStack Query", "Tailwind CSS", "JWT"],
     github: "https://github.com/saket-gupta99/ems",
     live: "https://siinfratechems.netlify.app/home",
   },
   {
-    name: "React Quiz App",
-    image: "/react-quiz.png",
+    name: "Second Brain App",
+    image: "/second-brain.png",
     description:
-      "A responsive quiz app with timed questions, score tracking, and auto-submit. Uses React hooks and fake API for realistic functionality. Users receive a final scorecard and can retry the quiz seamlessly.",
-    technologies: ["React", "useReducer", "useEffect", "Fake API"],
-    github: "https://github.com/saket-gupta99/react-quiz-app",
-    live: "https://quiz-app-react-now.netlify.app/",
+      "A modern note-taking and knowledge management app inspired by the second brain concept. Features rich-text editing, link previews, and persistent storage.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "TanStack Query",
+      "Tailwind CSS",
+      "Express",
+      "MongoDB",
+      "JWT"
+    ],
+    github: "https://github.com/saket-gupta99/second-brain",
+    live: "https://second-brainn.netlify.app/login",
   },
   {
     name: "usePopcorn",
@@ -45,8 +53,6 @@ const projects = [
   },
 ];
 
-
-
 export default function ProjectCards() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
@@ -63,12 +69,15 @@ export default function ProjectCards() {
                 alt={project.name}
               />
             </div>
-            <div className="p-4 space-y-4 rounded-b-2xl bg-slate-50 dark:bg-dark-700 dark:text-slate-200">
+            <div className="p-4 space-y-4 rounded-b-2xl bg-slate-50 dark:bg-dark-700 dark:text-slate-100">
               <h3 className="text-xl font-semibold">{project.name}</h3>
               <p>{project.description}</p>
               <p className=" flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
-                  <span key={tech} className="rounded-md p-2 bg-green-500 dark:bg-pink-600">
+                  <span
+                    key={tech}
+                    className="rounded-md p-2 bg-green-500 dark:bg-pink-600"
+                  >
                     {tech}
                   </span>
                 ))}
