@@ -45,8 +45,8 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <div className="hidden lg:block w-1/2">
-        <img src="/illustration.svg" alt="illustration" />
+      <div className="hidden lg:flex w-1/2 justify-end">
+        <img src="/illustration.svg" alt="illustration" className="h-[26rem]" />
       </div>
     </div>
   );
