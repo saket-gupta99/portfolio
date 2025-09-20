@@ -6,7 +6,15 @@ const projects = [
     image: "/EMS.png",
     description:
       "A full-stack app to manage employee records with role-based access and JWT authentication. Built using React, Node.js, Express, and MongoDB. Admins can securely add, update, or delete users through a responsive UI.",
-    technologies: ["Node.js", "Express", "MongoDB", "React", "TanStack Query", "Tailwind CSS", "JWT"],
+    technologies: [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "React",
+      "TanStack Query",
+      "Tailwind CSS",
+      "JWT",
+    ],
     github: "https://github.com/saket-gupta99/ems",
     live: "https://siinfratechems.netlify.app/home",
   },
@@ -22,19 +30,19 @@ const projects = [
       "Tailwind CSS",
       "Express",
       "MongoDB",
-      "JWT"
+      "JWT",
     ],
     github: "https://github.com/saket-gupta99/second-brain",
     live: "https://second-brainn.netlify.app/login",
   },
   {
-    name: "usePopcorn",
-    image: "/use-popcorn.png",
+    name: "Simple Chat App",
+    image: "/chat-app.png",
     description:
-      "A movie browser using the OMDB API. Search, rate, and save movies to your watched list with localStorage and custom React hooks. Smooth keyboard navigation and dynamic content rendering enhance the experience.",
-    technologies: ["React", "OMDB API", "LocalStorage", "Hooks"],
-    github: "https://github.com/saket-gupta99/usepopcorn",
-    live: "https://usepopcorn-react-now.netlify.app/",
+      "A real-time chat application with room-based messaging. Users can create or join rooms, send and receive messages instantly, and get notified when participants join or leave. Built with WebSockets for seamless communication and a modern, responsive UI.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Express", "WebSocket"],
+    github: "https://github.com/saket-gupta99/simple-chat-app",
+    live: "https://simple-chat-app-v1.netlify.app/",
   },
   {
     name: "Fast React Pizza",
@@ -52,6 +60,7 @@ const projects = [
     live: "https://react-pizza-now.netlify.app/",
   },
 ];
+
 
 export default function ProjectCards() {
   return (
