@@ -19,6 +19,21 @@ const projects = [
     live: "https://siinfratechems.netlify.app/home",
   },
   {
+    name: "The Startup Burnout",
+    image: "/the-startup-burnout.png",
+    description:
+      "A real-time multiplayer social deduction game set in a remote startup environment. Players collaborate as developers to complete tasks and launch a product, while a hidden corporate spy sabotages progress using real-time actions.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "WebSockets",
+      "TailwindCSS",
+    ],
+    github: "https://github.com/saket-gupta99/the-startup-burnout",
+    live: "https://the-startup-burnout.netlify.app/",
+  },
+  {
     name: "Second Brain App",
     image: "/second-brain.png",
     description:
@@ -40,7 +55,13 @@ const projects = [
     image: "/chat-app.png",
     description:
       "A real-time chat application with room-based messaging. Users can create or join rooms, send and receive messages instantly, and get notified when participants join or leave. Built with WebSockets for seamless communication and a modern, responsive UI.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Express", "WebSocket"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Express",
+      "WebSocket",
+    ],
     github: "https://github.com/saket-gupta99/simple-chat-app",
     live: "https://simple-chat-app-v1.netlify.app/",
   },
@@ -59,8 +80,8 @@ const projects = [
     github: "https://github.com/saket-gupta99/fast-react-pizza",
     live: "https://react-pizza-now.netlify.app/",
   },
+  
 ];
-
 
 export default function ProjectCards() {
   return (
